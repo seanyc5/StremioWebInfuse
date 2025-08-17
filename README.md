@@ -10,7 +10,7 @@ This fork adds **Infuse** as an external player option in Stremio Web, allowing 
 
 - **Infuse External Player**: Added to the external players list for macOS
 - **Direct Streaming**: Content opens directly in Infuse without downloading M3U files
-- **Debrid Service Integration**: Works seamlessly with Real-Debrid, AllDebrid, and other debrid services
+- **Seamless Integration**: Works with any content source that Stremio supports
 - **URL Scheme Support**: Uses `infuse://x-callback-url/play?url=...` for direct playback
 
 ## 🚀 Installation
@@ -20,7 +20,6 @@ This fork adds **Infuse** as an external player option in Stremio Web, allowing 
 - **macOS** (required for Infuse integration)
 - **Node.js** (v14 or higher)
 - **Infuse app** installed on your Mac
-- **Debrid service account** (Real-Debrid, AllDebrid, etc.)
 
 ### Quick Start
 
@@ -89,7 +88,7 @@ The integration works by:
 ### URL Format
 
 ```
-infuse://x-callback-url/play?url=https%3A//debrid-service.com/d/...
+infuse://x-callback-url/play?url=https%3A//example.com/stream.m3u8
 ```
 
 ## 🤝 Contributing
@@ -109,13 +108,13 @@ This project is based on [Stremio Web](https://github.com/Stremio/stremio-web) a
 
 - **Original Stremio Team** - For the amazing Stremio Web application
 - **Infuse Team** - For the excellent URL scheme support
-- **Debrid Services** - For their excellent APIs
+
 
 ## 🔗 Links
 
 - [Original Stremio Web](https://github.com/Stremio/stremio-web)
 - [Infuse App](https://firecore.com/infuse)
-- [Debrid Services](https://real-debrid.com/) (Real-Debrid, AllDebrid, etc.)
+
 - [Stremio Community](https://www.stremio.com/)
 
 ## 🐛 Troubleshooting
@@ -126,9 +125,9 @@ This project is based on [Stremio Web](https://github.com/Stremio/stremio-web) a
 - Try manually opening `infuse://` links in your browser
 
 ### Stream not playing
-- Verify your debrid service account is active
-- Check that the content is available in your debrid library
-- Ensure you have sufficient debrid points
+- Verify your content source is working properly
+- Check that the stream URL is accessible
+- Ensure you have the necessary permissions
 
 ### Development issues
 - Clear browser cache and local storage
