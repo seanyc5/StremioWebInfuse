@@ -78,6 +78,11 @@ const EXTERNAL_PLAYERS = [
         platforms: ['macos'],
     },
     {
+        label: 'Infuse',
+        value: 'infuse',
+        platforms: ['macos'],
+    },
+    {
         label: 'MX Player',
         value: 'mxplayer',
         platforms: ['android'],

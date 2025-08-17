@@ -1,49 +1,140 @@
-# Stremio - Freedom to Stream
+# Stremio Web with Infuse Integration
 
-![Build](https://github.com/stremio/stremio-web/workflows/Build/badge.svg?branch=development)
-[![Github Page](https://img.shields.io/website?label=Page&logo=github&up_message=online&down_message=offline&url=https%3A%2F%2Fstremio.github.io%2Fstremio-web%2F)](https://stremio.github.io/stremio-web/development)
+A modified version of [Stremio Web](https://github.com/Stremio/stremio-web) with **Infuse external player support** for macOS users.
 
-Stremio is a modern media center that's a one-stop solution for your video entertainment. You discover, watch and organize video content from easy to install addons.
+## 🎬 What's New
 
-## Build
+This fork adds **Infuse** as an external player option in Stremio Web, allowing you to stream content directly to Infuse on macOS using the `infuse://` URL scheme.
+
+### ✨ Features Added
+
+- **Infuse External Player**: Added to the external players list for macOS
+- **Direct Streaming**: Content opens directly in Infuse without downloading M3U files
+- **Real-Debrid Integration**: Works seamlessly with Real-Debrid and other debrid services
+- **URL Scheme Support**: Uses `infuse://x-callback-url/play?url=...` for direct playback
+
+## 🚀 Installation
 
 ### Prerequisites
 
-* Node.js 12 or higher
-* npm 6 or higher
+- **macOS** (required for Infuse integration)
+- **Node.js** (v14 or higher)
+- **Infuse app** installed on your Mac
+- **Real-Debrid account** (or similar debrid service)
 
-### Install dependencies
+### Quick Start
 
-```bash
-npm install
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/seanyc5/StremioWebInfuse.git
+   cd StremioWebInfuse
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+4. **Open in browser**
+   Navigate to `https://localhost:8080`
+
+5. **Configure Infuse**
+   - Go to **Settings** → **Player**
+   - Select **"Infuse"** from the external player dropdown
+   - Save your settings
+
+## 🎯 How to Use
+
+1. **Browse content** in Stremio as usual
+2. **Click on any stream** to play
+3. **Content opens directly in Infuse** on your Mac
+4. **Enjoy streaming** with Infuse's excellent playback features
+
+## 🔧 Development
+
+### Making Changes
+
+1. **Start development server**
+   ```bash
+   npm start
+   ```
+
+2. **Make your changes** (live reload enabled)
+
+3. **Build for production**
+   ```bash
+   npm run build
+   npm run start-prod
+   ```
+
+### Project Structure
+
+- **Modified Files**:
+  - `src/common/CONSTANTS.js` - Added Infuse to external players list
+  - `src/routes/MetaDetails/StreamsList/Stream/Stream.js` - Added Infuse URL generation
+
+## 📱 Infuse Integration Details
+
+The integration works by:
+
+1. **Detecting Infuse player type** in user settings
+2. **Generating Infuse URL scheme**: `infuse://x-callback-url/play?url=<encoded_stream_url>`
+3. **Opening content directly** in Infuse without intermediate downloads
+
+### URL Format
+
+```
+infuse://x-callback-url/play?url=https%3A//real-debrid.com/d/...
 ```
 
-### Start development server
+## 🤝 Contributing
 
-```bash
-npm start
-```
+This is a fork of the official Stremio Web repository. To contribute:
 
-### Production build
+1. Fork this repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-```bash
-npm run build
-```
+## 📄 License
 
-## Screenshots
+This project is based on [Stremio Web](https://github.com/Stremio/stremio-web) and is licensed under the same GPL-2.0 license.
 
-### Board
+## 🙏 Credits
 
-![Board](/screenshots/board.png)
+- **Original Stremio Team** - For the amazing Stremio Web application
+- **Infuse Team** - For the excellent URL scheme support
+- **Real-Debrid** - For their debrid service API
 
-### Discover
+## 🔗 Links
 
-![Discover](/screenshots/discover.png)
+- [Original Stremio Web](https://github.com/Stremio/stremio-web)
+- [Infuse App](https://firecore.com/infuse)
+- [Real-Debrid](https://real-debrid.com/)
+- [Stremio Community](https://www.stremio.com/)
 
-### Meta Details
+## 🐛 Troubleshooting
 
-![Meta Details](/screenshots/metadetails.png)
+### Infuse not opening
+- Ensure Infuse is installed on your Mac
+- Check that the Infuse protocol is registered
+- Try manually opening `infuse://` links in your browser
 
-## License
+### Stream not playing
+- Verify your Real-Debrid account is active
+- Check that the content is available in your debrid library
+- Ensure you have sufficient debrid points
 
-Stremio is copyright 2017-2023 Smart code and available under GPLv2 license. See the [LICENSE](/LICENSE.md) file in the project for more information.
+### Development issues
+- Clear browser cache and local storage
+- Restart the development server
+- Check browser console for errors
+
+---
+
+**Enjoy streaming your media with Stremio + Infuse! 🎬✨**

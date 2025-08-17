@@ -53,6 +53,11 @@ const Stream = ({ className, videoId, videoReleased, addonName, name, descriptio
     }, []);
 
     const href = React.useMemo(() => {
+        // Handle Infuse external player specifically
+        if (profile.settings.playerType === 'infuse' && deepLinks?.externalPlayer?.download) {
+            return `infuse://x-callback-url/play?url=${encodeURIComponent(deepLinks.externalPlayer.download)}`;
+        }
+        
         return deepLinks ?
             deepLinks.externalPlayer ?
                 deepLinks.externalPlayer.web ?
@@ -69,7 +74,7 @@ const Stream = ({ className, videoId, videoReleased, addonName, name, descriptio
                 deepLinks.player
             :
             null;
-    }, [deepLinks]);
+    }, [deepLinks, profile.settings.playerType]);
 
     const download = React.useMemo(() => {
         return href === deepLinks?.externalPlayer?.playlist ?
